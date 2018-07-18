@@ -3,10 +3,45 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link" href="<%= courses_path %>">Cursos</a>
-      <a class="nav-item nav-link" href="<%= students_path %>">Estudantes</a>
-    </div>
+  <div class="navbar-collapse collapse" id="navbarNavAltMarkup">
+     <ul class="navbar-nav mr-auto">
+      <% if student_signed_in? %>
+        <li class="nav-item">
+          <a class="nav-link" href="<%= new_contact_path %>"> Novo contato </a>
+        </li>
+      <% elsif coordinator_signed_in? %>
+         <li class="nav-item">
+          <a class="nav-item nav-link" href="<%=  %>"> Solicitações de egressos </a>
+          <a class="nav-item nav-link" href="<%=  %>"> Solicitações de depoimentos </a>
+        </li>
+    </ul>
+    <% else%>
+    <ul class="navbar-nav">
+      <li class="nav-item">
+          <a class="nav-link" href="<%= home_login_path %>">Entrar</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="<%= home_signup_path %>">Cadastrar-se</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="<%=  new_admin_session_path %>">Admin</a>
+      </li>
+      </ul>
+    <% end %>
+    </ul>
+    
+    <p class="navbar-text pull-right">
+        <% if student_signed_in? %>
+          Olá <strong><%= current_student.name %></strong>.
+          <%= link_to 'Atualizar perfil', edit_student_registration_path, :class => 'navbar-link' %> |
+          <%= link_to "Sair", destroy_student_session_path, method: :delete, :class => 'navbar-link'  %>
+        <% elsif coordinator_signed_in? %>
+          Olá <strong><%= current_coordinator.name %></strong>.
+          <%= link_to 'Atualizar perfil', edit_coordinator_registration_path, :class => 'navbar-link' %> |
+          <%= link_to "Sair", destroy_coordinator_session_path, method: :delete, :class => 'navbar-link'  %>
+        <% end %>
+    </p>
+  
   </div>
 </nav>
+

@@ -2,7 +2,7 @@ class CreateStudents < ActiveRecord::Migration[5.1]
   def change
     create_table :students do |t|
       t.string :nome
-      t.string :matricula
+      t.string :matricula, unique: true
       t.string :email
       t.string :telefone
       t.integer :ano

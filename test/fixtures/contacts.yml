@@ -3,9 +3,9 @@
 one:
   tipo: MyString
   valor: MyString
-  egresso: one
+  student: one
 
 two:
   tipo: MyString
   valor: MyString
-  egresso: two
+  student: two

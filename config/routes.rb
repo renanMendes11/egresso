@@ -1,12 +1,29 @@
 Rails.application.routes.draw do
+  resources :courses
   resources :contacts
   resources :conclusions
-  resources :coordinators
+  # resources :coordinators
+  # resources :students
+  
   get 'home/index'
-
+  get 'home/login'
+  get 'home/signup'
   root 'home#index'
+ 
 
-  resources :students
-  resources :courses
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  devise_for :coordinators, path: 'coordinators', controllers: {
+    sessions: "coordinators/sessions",
+    registrations: "coordinators/registrations"
+  }
+
+  devise_for :students, path: 'students', controllers: {
+    sessions: "students/sessions",
+    registrations: "students/registrations"
+  }
+
+  devise_for :admins, path: 'admins', controllers: {
+    sessions: "admins/sessions",
+    registrations: "admins/registrations"
+  }
+  
 end

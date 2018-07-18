@@ -1,0 +1,60 @@
+<h2>Cadastre-se</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+
+  <div class="field">
+    <%= f.label :nome %>
+    <%= f.text_field :nome, id: :student_nome %>
+  </div>
+
+  <div class="field">
+    <%= f.label :matricula %>
+    <%= f.text_field :matricula, id: :student_matricula %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email, id: :student_email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :telefone %>
+    <%= f.text_field :telefone, id: :student_telefone %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ano %>
+    <%= f.number_field :ano, id: :student_ano %>
+  </div>
+
+  <div class="field">
+    <%= f.label :semestre %>
+    <%= f.number_field :semestre, id: :student_semestre %>
+  </div>
+
+  <%# <div class="field">
+    <%= f.label :Curso %>
+    <%# <%= collection_select(:student, :course_id, @cursos, :id, :nome) %>
+  <%# </div> %>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br/>
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>  
+
+  <div class="actions">
+    <%= f.submit "Cadastrar" %>
+  </div>
+<% end %>
+
+<%= render "students/shared/links" %>
