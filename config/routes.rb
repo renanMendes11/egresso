@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :contacts
+  resources :conclusions
+  resources :coordinators
   get 'home/index'
 
   root 'home#index'

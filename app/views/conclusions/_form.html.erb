@@ -1,0 +1,32 @@
+<%= form_with(model: conclusion, local: true) do |form| %>
+  <% if conclusion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(conclusion.errors.count, "error") %> prohibited this conclusion from being saved:</h2>
+
+      <ul>
+      <% conclusion.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :ano %>
+    <%= form.text_field :ano, id: :conclusion_ano %>
+  </div>
+
+  <div class="field">
+    <%= form.label :semestre %>
+    <%= form.text_field :semestre, id: :conclusion_semestre %>
+  </div>
+
+  <div class="field">
+    <%= form.label :student_id %>
+    <%= form.text_field :student_id, id: :conclusion_student_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

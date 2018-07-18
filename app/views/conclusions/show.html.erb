@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Ano:</strong>
+  <%= @conclusion.ano %>
+</p>
+
+<p>
+  <strong>Semestre:</strong>
+  <%= @conclusion.semestre %>
+</p>
+
+<p>
+  <strong>Student:</strong>
+  <%= @conclusion.student %>
+</p>
+
+<%= link_to 'Edit', edit_conclusion_path(@conclusion) %> |
+<%= link_to 'Back', conclusions_path %>
