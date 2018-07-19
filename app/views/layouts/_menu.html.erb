@@ -24,7 +24,7 @@
           <a class="nav-link" href="<%= home_signup_path %>">Cadastrar-se</a>
       </li>
       <li class="nav-item">
-          <a class="nav-link" href="<%=  new_admin_session_path %>">Admin</a>
+          <%= link_to "Admin", new_admin_session_path, :class => 'nav-item'  %> 
       </li>
       </ul>
     <% end %>
